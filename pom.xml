@@ -12,10 +12,14 @@
 	<groupId>com.genersoft</groupId>
 	<artifactId>wvp</artifactId>
 	<name>web video platform</name>
+	<packaging>jar</packaging>
 	
 	<properties>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.repository>${artifactId}</project.repository>
+		<project.tag>${version}</project.tag>
+		<dockerfile.maven.version>1.4.13</dockerfile.maven.version>
 
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<hystrix.version>1.5.12</hystrix.version>
 		<!-- 依赖版本 -->
 		<mapper.version>3.4.0</mapper.version>
@@ -167,6 +171,26 @@
 				<artifactId>maven-surefire-plugin</artifactId>
 			</plugin>
 
+			<plugin>
+				<groupId>com.spotify</groupId>
+				<artifactId>dockerfile-maven-plugin</artifactId>
+				<version>${dockerfile.maven.version}</version>
+				<executions>
+					<execution>
+						<id>default</id>
+						<goals>
+							<goal>build</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<repository>${project.repository}</repository>
+					<tag>${project.tag}</tag>
+					<buildArgs>
+						<JAR_FILE>${project.build.finalName}.jar</JAR_FILE>
+					</buildArgs>
+				</configuration>
+			</plugin>
 		</plugins>
 	</build>
 </project>

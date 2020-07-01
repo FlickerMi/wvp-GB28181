@@ -11,7 +11,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 //@EnableTransactionManagement
 //@EnableFeignClients(basePackages = { "com.genersoft.iot.vmp", "org.integrain" })
 //@ServletComponentScan("com.genersoft.iot.vmp")
-@EnableAutoConfiguration
+//@EnableAutoConfiguration
 public class VManageBootstrap extends LogManager {
 	public static void main(String[] args) {
 		SpringApplication.run(VManageBootstrap.class, args);
