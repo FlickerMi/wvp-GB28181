@@ -24,7 +24,7 @@ spring:
         type: com.alibaba.druid.pool.DruidDataSource
         driver-class-name: com.mysql.jdbc.Driver
 server:
-    port: 8090
+    port: 8080
 sip:
 #   ip: 10.200.64.63
     ip: 192.168.0.102
